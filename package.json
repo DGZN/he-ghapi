@@ -1,0 +1,19 @@
+{
+  "name": "hotelengine-github-api-test",
+  "version": "1.0.0",
+  "description": "Hotel Engine Test - NodeJS app that uses the Github API to display PR stats for user specified repo",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "npx -r esm mocha src/tests/** --reporter mochawesome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DGZN/he-ghapi.git"
+  },
+  "author": "Keiichi Lindley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DGZN/he-ghapi/issues"
+  },
+  "homepage": "https://github.com/DGZN/he-ghapi#readme"
+}
