@@ -4,7 +4,8 @@
   "description": "Hotel Engine Test - NodeJS app that uses the Github API to display PR stats for user specified repo",
   "main": "./src/app.js",
   "scripts": {
-    "test": "npx -r esm mocha src/tests/** --reporter mochawesome"
+    "lint": "npx -r esm eslint src/**/*",
+    "test": "yarn lint && npx nodemon --watch src/tests --exec 'npx mocha -r esm src/tests/** --reporter mochawesome && open ./mochawesome-report/mochawesome.html'"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,53 @@
   "bugs": {
     "url": "https://github.com/DGZN/he-ghapi/issues"
   },
-  "homepage": "https://github.com/DGZN/he-ghapi#readme"
+  "homepage": "https://github.com/DGZN/he-ghapi#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "github-api": "^3.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.2.2",
+    "mochawesome": "^4.1.0",
+    "nodemon": "^1.19.4",
+    "nyc": "^14.1.1"
+  },
+  "esm": {
+    "mode": "auto"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-undef": 0,
+      "no-unused-vars": 0,
+      "indent": [
+        "error",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "warn",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-prototype-builtins": "off"
+    }
+  },
+  "eslintIgnore": ["src/stubs/**"]
 }
