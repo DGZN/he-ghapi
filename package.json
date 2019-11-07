@@ -5,7 +5,8 @@
   "main": "./src/app.js",
   "scripts": {
     "lint": "npx -r esm eslint src/**/*",
-    "test": "yarn lint && npx nodemon --watch src/tests --exec 'npx mocha -r esm src/tests/** --reporter mochawesome && open ./mochawesome-report/mochawesome.html'"
+    "dev-test": "yarn lint && npx nodemon --watch src/tests --exec 'npx mocha -r esm src/tests/** --reporter mochawesome'",
+    "test": "npx mocha -r esm src/tests/** --reporter mochawesome && open ./mochawesome-report/mochawesome.html"
   },
   "repository": {
     "type": "git",

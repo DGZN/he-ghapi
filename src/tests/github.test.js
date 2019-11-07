@@ -39,9 +39,10 @@ describe('GitHub', function() {
     });
 
     it('Should return pull requests for repository specified', function() {
-      let wrong = Github.pulls('dgzn');
+      let wrongPath = 'DGZN/he-ghapi';
+      let wrong = Github.pulls(wrongPath);
       pulls[0].head.repo.name.should.equal(repo);
-      wrong[0].head.repo.name.should.equal(repo);
+      wrong[0].head.repo.name.should.not.equal('he-ghapi');
     });
 
   });
